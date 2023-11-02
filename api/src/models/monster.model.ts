@@ -10,11 +10,19 @@ export class Monster extends Base {
   hp!: number;
   speed!: number;
   imageUrl!: string;
-  battles?: Battle[];
 
   static tableName = 'monster';
 
   static get relationMappings(): RelationMappings {
-    return {};
+    return {
+      battles: {
+        relation: Base.HasManyRelation,
+        modelClass: Battle,
+        join: {
+          from: 'monster.id',
+          to: ['battle.monsterA', 'battle.monsterB', 'battle.winner']
+        }
+      }
+    };
   }
 }

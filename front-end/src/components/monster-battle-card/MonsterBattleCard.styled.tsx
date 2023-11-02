@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { Card, LinearProgress, linearProgressClasses, Typography } from "@mui/material"
+import { Card, LinearProgress, linearProgressClasses, Typography, Box } from "@mui/material"
 import { colors } from "../../constants/colors"
 
 export const BattleMonsterCard = styled(Card, { shouldForwardProp: (prop) => prop !== "centralized" })<{ centralized?: boolean; }>(({ centralized }) => ({
@@ -18,9 +18,24 @@ export const BattleMonsterTitle = styled(Typography)(() => ({
     fontFamily: 'Roboto',
     fontStyle: 'normal',
     fontWeight: '400',
-    fontSize: '36px',
     lineHeight: '42px',
     color: colors.black,
+}))
+
+export const BattleMonsterPropertyTitle = styled(Typography)(() => ({
+    fontFamily: 'Roboto',
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: '12px',
+    lineHeight: '12px',
+    color: colors.black,
+    paddingTop: '10px',
+    paddingBottom: '6px'
+}))
+
+export const BattleMonsterCardDivider = styled(Box)(() => ({
+    width: '100%',
+    border: '1px rgba(0, 0, 0, 0.10) solid'
 }))
 
 export const ProgressBar = styled(LinearProgress)(() => ({
@@ -33,4 +48,9 @@ export const ProgressBar = styled(LinearProgress)(() => ({
         borderRadius: 15,
         backgroundColor: colors.progressColor,
     },
+}));
+
+export const Image = styled.img(() => ({
+    borderRadius: '7px',
+    width: '100%'
 }));
